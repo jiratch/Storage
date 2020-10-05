@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Database backup</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <style>
+    .sidebar a.configuration{
+      background-color: #5897DE;
+      font-size: 19px;
+    }
+    
+.content_wrapper{
+  position: relative;
+  top:30px;
+  left:50px;
+ 
+
+}
+
+.left{
+  line-height: 60px;
+  display: block;
+  position: relative;  
+  width:45%;
+  margin-left:20px;
+ 
+}
+
+.inputleft{
+
+  position: relative;
+  top:-300px;
+  left:140px
+
+}
+
+.right{
+  line-height: 60px;
+  display: block;
+  top:15px;
+  position: absolute;
+  left:50%;
+  width:50%;
+ 
+}
+
+.inputright{
+
+  position: relative;
+  top:-240px;
+  left:155px;
+  
+
+}
+
+.card{
+  padding:15px;
+  position: fixed;
+  left: 270px;
+  top:80px; 
+  width: 750px;
+  height: 350px;
+  background-position: center;
+  background-color: #fff;
+  border-radius: 7px;
+
+ 
+} 
+
+.savebutton{
+  background-color: #20c026;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.resetbutton{
+  background-color: rgb(230, 8, 8);
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 7px;
+}
+.sumbit{
+  position: relative;
+  top:50px
+}
+
+    </style>
+  </head>
+  <body>
+
+    
+   
+    <header>
+     
+      <div class="left_area">
+        <h3>DATABASE BACKUP</h3>
+      </div>
+      <div class="right_area">
+        <h3>Configuration</h3>
+      </div>
+    </header>
+
+    <div class="sidebar">  
+
+        <div class="wrapper">    
+        <a class="dashboard" href="dashboard.html"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+        <a class="configuration" href="configuration.html"><i class="fas fa-cogs"></i><span>Configuration</span></a>
+        <a class="timeschedule" href="timeschedule.html"><i class="fas fa-table"></i><span>Time Schedule</span></a>
+        <a class="download" href="download.html"><i class="fas fa-download"></i><span>Download</span></a>
+        <a class="history" href="history.html"><i class="fas fa-history"></i><span>History</span></a>
+        </div>
+    </div>
+  
+
+    <div class="content">
+
+    <div class="content_wrapper">
+    <div class="card">
+
+        <form name="update" action="http://localhost:5000/update/configuration" method="post"> 
+            <div class="left">
+                <label ><i class="fas fa-database"></i> database type: </label><br>
+
+                <label ><i class="fas fa-user"></i> username: </label><br>        
+                <label > host: </label><br>        
+        
+                <label > database: </label><br>                
+             
+                <label > maximum files: </label><br>                
+              
+                <div class="inputleft"> 
+
+                  <select name="type" id="type">
+                    <option value="mongodb">mongodb</option>
+                    <option value="mariadb">mariadb</option>
+                  
+                  </select><br>
+                  <input type="text" name="username" value="sysmod"><br>
+                  <input type="text" name="host" value="192.168.100.39"><br>               
+                  <input type="text" name="database" value=""><br>
+                  <input type="text" name="Maximum" value="30"><br>
+
+                </div>
+              
+                           
+            </div>
+
+            <div class="right">
+                <label ><i class="fas fa-server"></i> database server: </label><br>
+               
+                <label ><i class="fas fa-unlock"></i> password: </label><br>
+                <label>  port: </label><br>
+               
+                <label > location: </label><br>
+               
+                  <div class="inputright">
+                  <select name="server" id="server">
+                    <option value="ygg-dds">ygg-dds</option>
+                    <option value="ygg-dev">ygg-dev</option>
+                    <option value="ygg-rds">ygg-rds</option>
+                  </select>
+                  <br>
+                  <input type="text" name="password" value="Yggadmin61"><br>
+                  <input type="text" name="port" value="3309"><br>            
+                  <input type="text" name="location" value="/backup/mongodb/ygg-dds"><br>
+
+                <div class="sumbit">
+                  <button class="savebutton" >Save</button>
+                  <button class="resetbutton" >Reset</button>
+                </div>
+                 
+                </div>
+          
+            </div>
+           
+            </form>
+            
+
+    </div>
+                
+    </div>
+          
+         </div>
+    </div>
+        
+  </body>
+</html>
+                           

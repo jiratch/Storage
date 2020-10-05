@@ -9,43 +9,30 @@ header{
   background: #22242A;
   padding: 20px;
   width: 100%;
-  height: 30px;
+  height: 25px;
+  z-index: 1;
 }
 
 .left_area h3{
-  color: #fff;
+  color:#fff;
   margin: 0;
-  text-transform: uppercase;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 900;
 }
 
-.left_area span{
-  color: #19B3D3;
-}
-
-.logout_btn{
-  padding: 5px;
-  background: #19B3D3;
-  text-decoration: none;
-  float: right;
+.right_area h3{
+  color:#fff;
+  margin-left:700px;
   margin-top: -30px;
-  margin-right: 40px;
-  border-radius: 2px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #fff;
-  transition: 0.5s;
-  transition-property: background;
+  font-size: 25px;
+  font-weight: 700;
 }
 
-.logout_btn:hover{
-  background: #0B87A6;
-}
+
 
 .sidebar {
-  background: #2f323a;
-  margin-top: 70px;
+  background: #525676;
+  margin-top: 0px;
   padding-top: 30px;
   position: fixed;
   left: 0;
@@ -54,6 +41,11 @@ header{
   transition: 0.15s;
   transition-property: left;
 }
+
+ .sidebar .wrapper{
+  margin-top: 70px;
+ 
+} 
 
 
 .sidebar a{
@@ -64,62 +56,37 @@ header{
   text-decoration: none;
   padding-left: 40px;
   box-sizing: border-box;
-  transition: 0.5s;
+  transition: 0.272s;
   transition-property: background;
+  transition-property: font-size;
 }
 
 .sidebar a:hover{
-  background: #19B3D3;
+  background: #5897DE;
+ 
+}
+
+.sidebar a:hover{
+  font-size: 19px;
+ 
 }
 
 .sidebar i{
   padding-right: 10px;
 }
 
-label #sidebar_btn{
-  z-index: 1;
-  color: #fff;
-  position: fixed;
-  cursor: pointer;
-  left: 300px;
-  font-size: 20px;
-  margin: 5px 0;
-  transition: 0.5s;
-  transition-property: color;
-}
-
-label #sidebar_btn:hover{
-  color: #19B3D3;
-}
-
-#check:checked ~ .sidebar{
-  left: -190px;
-}
-
-#check:checked ~ .sidebar a span{
-  display: none;
-}
-
-#check:checked ~ .sidebar a{
-  font-size: 20px;
-  margin-left: 170px;
-  width: 80px;
-}
 
 .content{
+ 
+  position: fixed;;
+  margin-top: 65px;
   margin-left: 250px;
-  background: url(background.png) no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 100vh;
-  transition: 0.5s;
+  height:100%;
+  width: 100%;
+  background-color: #DCE6E6;
+  font-size: 16px;
+
 }
 
-#check:checked ~ .content{
-  margin-left: 60px;
-}
 
-#check{
-  display: none;
-}
-                           
+                       
