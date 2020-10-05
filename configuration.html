@@ -6,13 +6,14 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <style>
-    .sidebar a.configuration{
+
+.sidebar a.configuration{
       background-color: #5897DE;
       font-size: 19px;
     }
     
 .content_wrapper{
-  position: relative;
+  position: absolute;
   top:30px;
   left:50px;
  
@@ -25,6 +26,7 @@
   position: relative;  
   width:45%;
   margin-left:20px;
+  top:-25px
  
 }
 
@@ -39,8 +41,8 @@
 .right{
   line-height: 60px;
   display: block;
-  top:15px;
-  position: absolute;
+  top:-625px;
+  position: relative;
   left:50%;
   width:50%;
  
@@ -56,18 +58,31 @@
 }
 
 .card{
-  padding:15px;
+  padding:6px;
   position: fixed;
   left: 270px;
-  top:80px; 
+  top:90px; 
   width: 750px;
-  height: 350px;
+  height: 420px;
   background-position: center;
   background-color: #fff;
   border-radius: 7px;
 
  
 } 
+.tablink {
+  background-color: #525676;
+  color: white;
+  float: left;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 33%;
+  border: 1;
+
+}
+
 
 .savebutton{
   background-color: #20c026;
@@ -80,6 +95,16 @@
   font-size: 16px;
   cursor: pointer;
   border-radius: 7px;
+}
+
+.tab{
+  position: relative;
+  margin-left: -30px;
+  background-color: #525676;
+  width:762px;
+  height: 50px;
+  z-index: 1;
+
 }
 
 .resetbutton{
@@ -97,14 +122,56 @@
 }
 .sumbit{
   position: relative;
-  top:50px
+  top:40px
 }
+#Edit {
+  
+  background-color: #fff;
+  color: black;
+  height:250px;
+
+}
+#Create {
+  background-color: #fff;
+  color: black;
+}
+#Delete {
+  background-color: #fff;
+  color: black;
+}
+.tabcontent {
+  position: relative;
+  color: white;
+  display: none;
+  padding: 5px;
+  top:50px
+   
+}
+
 
     </style>
   </head>
   <body>
+    <script>
+      function openPage(pageName,elmnt,color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+      }
+      
+ 
+      document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById("defaultOpen").click();})
+      </script>
 
-    
    
     <header>
      
@@ -131,67 +198,82 @@
     <div class="content">
 
     <div class="content_wrapper">
-    <div class="card">
-
-        <form name="update" action="http://localhost:5000/update/configuration" method="post"> 
-            <div class="left">
-                <label ><i class="fas fa-database"></i> database type: </label><br>
-
-                <label ><i class="fas fa-user"></i> username: </label><br>        
-                <label > host: </label><br>        
-        
-                <label > database: </label><br>                
-             
-                <label > maximum files: </label><br>                
-              
-                <div class="inputleft"> 
-
-                  <select name="type" id="type">
-                    <option value="mongodb">mongodb</option>
-                    <option value="mariadb">mariadb</option>
-                  
-                  </select><br>
-                  <input type="text" name="username" value="sysmod"><br>
-                  <input type="text" name="host" value="192.168.100.39"><br>               
-                  <input type="text" name="database" value=""><br>
-                  <input type="text" name="Maximum" value="30"><br>
-
-                </div>
-              
-                           
-            </div>
-
-            <div class="right">
-                <label ><i class="fas fa-server"></i> database server: </label><br>
-               
-                <label ><i class="fas fa-unlock"></i> password: </label><br>
-                <label>  port: </label><br>
-               
-                <label > location: </label><br>
-               
-                  <div class="inputright">
-                  <select name="server" id="server">
-                    <option value="ygg-dds">ygg-dds</option>
-                    <option value="ygg-dev">ygg-dev</option>
-                    <option value="ygg-rds">ygg-rds</option>
-                  </select>
-                  <br>
-                  <input type="text" name="password" value="Yggadmin61"><br>
-                  <input type="text" name="port" value="3309"><br>            
-                  <input type="text" name="location" value="/backup/mongodb/ygg-dds"><br>
-
-                <div class="sumbit">
-                  <button class="savebutton" >Save</button>
-                  <button class="resetbutton" >Reset</button>
-                </div>
-                 
-                </div>
           
-            </div>
-           
-            </form>
-            
+    <div class="card">
+      <button class="tablink" id="defaultOpen" onclick="openPage('Edit', this, '#0744A1')" > Edit <i class="far fa-edit"></i></button>
+      <button class="tablink" onclick="openPage('Create', this, 'green')" > Create <i class="fas fa-plus-circle"></i></button>
+      <button class="tablink" onclick="openPage('Delete', this, 'red')"> Delete <i class="fas fa-trash-alt"></i></button>
+    
+<div id="Edit" class="tabcontent">
+  
+  <form name="update" action="http://localhost:5000/update/configuration" method="post"> 
+    <div class="left">
+        <label ><i class="fas fa-database"></i>  database type </label><br>
 
+        <label ><i class="fas fa-user"></i> username </label><br>        
+        <label > host </label><br>        
+
+        <label > database </label><br>                
+     
+        <label > maximum files </label><br>                
+      
+        <div class="inputleft"> 
+
+          <select name="type" id="type">
+            <option value="mongodb">mongodb</option>
+            <option value="mariadb">mariadb</option>
+          
+          </select><br>
+          <input type="text" name="username" value="sysmod"><br>
+          <input type="text" name="host" value="192.168.100.39"><br>               
+          <input type="text" name="database" value=""><br>
+          <input type="text" name="maximumfiles" value="30"><br>
+
+        </div>
+      
+                   
+    </div>
+
+    <div class="right">
+        <label ><i class="fas fa-server"></i>  database server </label><br>               
+        <label ><i class="fas fa-unlock"></i> password </label><br>
+        <label>  port</label><br>
+       
+        <label > location </label><br>
+       
+          <div class="inputright">
+          <select name="server" id="server">
+            <option value="ygg-dds">ygg-dds</option>
+            <option value="ygg-dev">ygg-dev</option>
+            <option value="ygg-rds">ygg-rds</option>
+          </select>
+          <br>
+          <input type="text" name="password" value="Yggadmin61"><br>
+          <input type="text" name="port" value="3309"><br>            
+          <input type="text" name="location" value="/backup/mongodb/ygg-dds"><br>
+
+        <div class="sumbit">
+          <button class="savebutton" >Save</button>
+          <button class="resetbutton" >Reset</button>
+        </div>
+         
+        </div>
+  
+    </div>
+   
+    </form>
+</div>
+
+<div id="Create" class="tabcontent">
+  <p>Create new database configuration</p>
+
+</div>
+
+<div id="Delete" class="tabcontent">
+  <p>Delete database configuration</p>
+
+</div>
+       
     </div>
                 
     </div>
