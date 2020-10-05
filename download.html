@@ -6,16 +6,197 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <style>
-    .sidebar a.download{
+
+.sidebar a.download{
       background-color: #5897DE;
       font-size: 19px;
     }
+    
+.content_wrapper{
+  position: absolute;
+  top:30px;
+  left:50px;
+ 
+
+}
+
+.left{
+  line-height: 60px;
+  display: block;
+  position: relative;  
+  width:45%;
+  margin-left:20px;
+  top:-25px
+ 
+}
+
+.inputleft{
+
+  position: relative;
+  top:-300px;
+  left:140px
+
+}
+
+.right{
+  line-height: 60px;
+  display: block;
+  top:-625px;
+  position: relative;
+  left:50%;
+  width:50%;
+ 
+}
+
+.inputright{
+
+  position: relative;
+  top:-240px;
+  left:155px;
+  
+
+}
+
+.card{
+  padding:6px;
+  position: fixed;
+  left: 270px;
+  top:90px; 
+  width: 750px;
+  height: 420px;
+  background-position: center;
+  background-color: #fff;
+  border-radius: 7px;
+
+ 
+} 
+.tablink {
+  background-color: #4A80D4;
+  color: white;
+  float: left;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 33%;
+  border: none;
+  transition: 0.272s;
+  transition-property: background-color;
+
+}
+
+
+
+#Createtab:hover {
+  background-color: #0849AF;
+
+
+}
+
+#Deletetab:hover {
+  background-color: #0849AF;
+
+
+}
+
+#Edittab:hover {
+  background-color: #0849AF;
+
+ 
+}
+
+.savebutton{
+  background-color: #20c026;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.tab{
+  position: relative;
+  margin-left: -30px;
+  background-color: #525676;
+  width:762px;
+  height: 50px;
+  z-index: 1;
+
+}
+
+.resetbutton{
+  background-color: rgb(230, 8, 8);
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 7px;
+}
+.sumbit{
+  position: relative;
+  top:40px
+}
+#Edit {
+  
+  background-color: #fff;
+  color: black;
+  height:250px;
+
+}
+#Create {
+  background-color: #fff;
+  color: black;
+}
+#Delete {
+  background-color: #fff;
+  color: black;
+}
+.tabcontent {
+  position: relative;
+  color: white;
+  display: none;
+  padding: 5px;
+  top:50px;
+
+   
+}
     </style>
   </head>
   <body>
+    <script>
+      function openPage(pageName,elmnt,color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+      
 
-      <header>
-  
+      }
+      
+ 
+      document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById("Edittab").click();})
+      </script>
+
+   
+    <header>
+     
       <div class="left_area">
         <h3>DATABASE BACKUP</h3>
       </div>
@@ -24,19 +205,104 @@
       </div>
     </header>
 
-    <div class="sidebar">
-        <div class="wrapper">  
-      <a class="dashboard" href="dashboard.html"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
-      <a class="configuration" href="configuration.html"><i class="fas fa-cogs"></i><span>Configuration</span></a>
-      <a class="timeschedule" href="timeschedule.html"><i class="fas fa-table"></i><span>Time Schedule</span></a>
-      <a class="download" href="download.html"><i class="fas fa-download"></i><span>Download</span></a>
-      <a class="history" href="history.html"><i class="fas fa-history"></i><span>History</span></a>
+    <div class="sidebar">  
+
+        <div class="wrapper">    
+        <a class="dashboard" href="dashboard.html"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+        <a class="configuration" href="configuration.html"><i class="fas fa-cogs"></i><span>Configuration</span></a>
+        <a class="timeschedule" href="timeschedule.html"><i class="fas fa-table"></i><span>Time Schedule</span></a>
+        <a class="download" href="download.html"><i class="fas fa-download"></i><span>Download</span></a>
+        <a class="history" href="history.html"><i class="fas fa-history"></i><span>History</span></a>
         </div>
     </div>
   
 
-    <div class="content"></div>
+    <div class="content">
 
+    <div class="content_wrapper">
+          
+    <div class="card">
+      <button class="tablink" id="Edittab" onclick="openPage('Edit', this, '#0849AF')" > Edit <i class="far fa-edit"></i></button>
+      <button class="tablink" id="Createtab" onclick="openPage('Create', this, '#0849AF')" > Create <i class="fas fa-plus-circle"></i></button>
+      <button class="tablink" id="Deletetab" onclick="openPage('Delete', this, '#0849AF')"> Delete <i class="fas fa-trash-alt"></i></button>
+    
+<div id="Edit" class="tabcontent">
+  
+  <form name="update" action="http://localhost:5000/download" method="post"> 
+    <div class="left">
+        <label ><i class="fas fa-database"></i>  database type : </label><br>
+
+        <label ><i class="fas fa-user"></i> username : </label><br>        
+        <label > host : </label><br>        
+
+        <label > database : </label><br>                
+     
+        <label > maximum files : </label><br>                
+      
+        <div class="inputleft"> 
+
+          <select name="type" id="type">
+            <option value="mongodb">mongodb</option>
+            <option value="mariadb">mariadb</option>
+          
+          </select><br>
+          <input type="text" name="username" value="sysmod"><br>
+          <input type="text" name="host" value="192.168.100.39"><br>               
+          <input type="text" name="database" value=""><br>
+          <input type="text" name="maximumfiles" value="30"><br>
+
+        </div>
+      
+                   
+    </div>
+
+    <div class="right">
+        <label ><i class="fas fa-server"></i>  database server : </label><br>               
+        <label ><i class="fas fa-unlock"></i> password : </label><br>
+        <label>  port :</label><br>
+       
+        <label > location : </label><br>
+       
+          <div class="inputright">
+          <select name="server" id="server">
+            <option value="ygg-dds">ygg-dds</option>
+            <option value="ygg-dev">ygg-dev</option>
+            <option value="ygg-rds">ygg-rds</option>
+          </select>
+          <br>
+          <input type="text" name="password" value="Yggadmin61"><br>
+          <input type="text" name="port" value="3309"><br>            
+          <input type="text" name="location" value="/backup/mongodb/ygg-dds"><br>
+
+        <div class="sumbit">
+          <button class="savebutton" >Save</button>
+          <button class="resetbutton" >Reset</button>
+        </div>
+         
+        </div>
+  
+    </div>
+   
+    </form>
+</div>
+
+<div id="Create" class="tabcontent">
+  <p>Create new database configuration</p>
+
+</div>
+
+<div id="Delete" class="tabcontent">
+  <p>Delete database configuration</p>
+
+</div>
+       
+    </div>
+                
+    </div>
+          
+         </div>
+    </div>
+        
   </body>
 </html>
                            

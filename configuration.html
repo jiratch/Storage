@@ -71,7 +71,7 @@
  
 } 
 .tablink {
-  background-color: #525676;
+  background-color: #4A80D4;
   color: white;
   float: left;
   outline: none;
@@ -80,21 +80,28 @@
   font-size: 17px;
   width: 33%;
   border: none;
+  transition: 0.272s;
+  transition-property: background-color;
 
 }
 
+
+
 #Createtab:hover {
-  background-color: green;
+  background-color: #0849AF;
+
 
 }
 
 #Deletetab:hover {
-  background-color: red;
+  background-color: #0849AF;
+
 
 }
 
 #Edittab:hover {
-  background-color: #0744A1;
+  background-color: #0849AF;
+
  
 }
 
@@ -162,8 +169,6 @@
 
    
 }
-
-
     </style>
   </head>
   <body>
@@ -215,9 +220,9 @@
     <div class="content_wrapper">
           
     <div class="card">
-      <button class="tablink" id="Edittab" onclick="openPage('Edit', this, '#0744A1')" > Edit <i class="far fa-edit"></i></button>
-      <button class="tablink" id="Createtab" onclick="openPage('Create', this, 'green')" > Create <i class="fas fa-plus-circle"></i></button>
-      <button class="tablink" id="Deletetab" onclick="openPage('Delete', this, 'red')"> Delete <i class="fas fa-trash-alt"></i></button>
+      <button class="tablink" id="Edittab" onclick="openPage('Edit', this, '#0849AF')" > Edit <i class="far fa-edit"></i></button>
+      <button class="tablink" id="Createtab" onclick="openPage('Create', this, '#0849AF')" > Create <i class="fas fa-plus-circle"></i></button>
+      <button class="tablink" id="Deletetab" onclick="openPage('Delete', this, '#0849AF')"> Delete <i class="fas fa-trash-alt"></i></button>
     
 <div id="Edit" class="tabcontent">
   
