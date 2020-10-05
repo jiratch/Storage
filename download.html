@@ -54,11 +54,10 @@
   top:-240px;
   left:155px;
   
-
 }
 
 .card{
-  padding:6px;
+
   position: fixed;
   left: 270px;
   top:90px; 
@@ -70,62 +69,54 @@
 
  
 } 
-.tablink {
-  background-color: #4A80D4;
-  color: white;
-  float: left;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  font-size: 17px;
-  width: 33%;
-  border: none;
-  transition: 0.272s;
-  transition-property: background-color;
 
-}
+.search-container{
 
-
-
-#Createtab:hover {
-  background-color: #0849AF;
+ background-color: #4A80D4;
+ width:730px;
+ height: 35px;
+ padding: 10px;
 
 
 }
 
-#Deletetab:hover {
-  background-color: #0849AF;
+.searchtab{
+  position: relative;
+  width:750px;
+  left:2px;
 
 
 }
 
-#Edittab:hover {
-  background-color: #0849AF;
+input[type=text] {
+    border: 1px solid #ccc;  
+    height: 27px;
+    width: 445px;
+    border-radius: 3px;
+  }
 
+.search-container button{
  
-}
+  padding: 6px 8px;
+  background: #fff;
+  font-size: 16px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+ 
+  }
 
 .savebutton{
   background-color: #20c026;
   border: none;
   color: white;
-  padding: 10px 25px;
+  padding: 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
   border-radius: 7px;
-}
-
-.tab{
-  position: relative;
-  margin-left: -30px;
-  background-color: #525676;
-  width:762px;
-  height: 50px;
-  z-index: 1;
-
 }
 
 .resetbutton{
@@ -145,53 +136,20 @@
   position: relative;
   top:40px
 }
-#Edit {
-  
-  background-color: #fff;
-  color: black;
-  height:250px;
 
+select{
+        width:  95px;
+        height: 30px;
+        border-radius: 4px;
+      
 }
-#Create {
-  background-color: #fff;
-  color: black;
-}
-#Delete {
-  background-color: #fff;
-  color: black;
-}
-.tabcontent {
-  position: relative;
-  color: white;
-  display: none;
-  padding: 5px;
-  top:50px;
 
-   
-}
+
     </style>
   </head>
   <body>
     <script>
-      function openPage(pageName,elmnt,color) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-          tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablink");
-        for (i = 0; i < tablinks.length; i++) {
-          tablinks[i].style.backgroundColor = "";
-        }
-        document.getElementById(pageName).style.display = "block";
-        elmnt.style.backgroundColor = color;
-      
-
-      }
-      
- 
-      document.addEventListener('DOMContentLoaded', function () {
-      document.getElementById("Edittab").click();})
+    
       </script>
 
    
@@ -222,85 +180,38 @@
     <div class="content_wrapper">
           
     <div class="card">
-      <button class="tablink" id="Edittab" onclick="openPage('Edit', this, '#0849AF')" > Edit <i class="far fa-edit"></i></button>
-      <button class="tablink" id="Createtab" onclick="openPage('Create', this, '#0849AF')" > Create <i class="fas fa-plus-circle"></i></button>
-      <button class="tablink" id="Deletetab" onclick="openPage('Delete', this, '#0849AF')"> Delete <i class="fas fa-trash-alt"></i></button>
-    
-<div id="Edit" class="tabcontent">
-  
-  <form name="update" action="http://localhost:5000/download" method="post"> 
-    <div class="left">
-        <label ><i class="fas fa-database"></i>  database type : </label><br>
 
-        <label ><i class="fas fa-user"></i> username : </label><br>        
-        <label > host : </label><br>        
+      <div class="search-container">
+        <div class="searchtab">
+          <form action="#">
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+            <i class="fas fa-database"></i>
+            <select class="select" name="type" id="type">
+              <option value="mongodb">mongodb</option>
+              <option value="mariadb">mariadb</option>
+            
+            </select>
+            <i class="fas fa-server"></i> 
+            <select name="server" id="server">
+              <option value="ygg-dds">ygg-dds</option>
+              <option value="ygg-dev">ygg-dev</option>
+              <option value="ygg-rds">ygg-rds</option>
+            </select>
+          </form>
+      
 
-        <label > database : </label><br>                
+        </div>
+
      
-        <label > maximum files : </label><br>                
+       
+      </div>      
       
-        <div class="inputleft"> 
-
-          <select name="type" id="type">
-            <option value="mongodb">mongodb</option>
-            <option value="mariadb">mariadb</option>
-          
-          </select><br>
-          <input type="text" name="username" value="sysmod"><br>
-          <input type="text" name="host" value="192.168.100.39"><br>               
-          <input type="text" name="database" value=""><br>
-          <input type="text" name="maximumfiles" value="30"><br>
-
-        </div>
-      
-                   
-    </div>
-
-    <div class="right">
-        <label ><i class="fas fa-server"></i>  database server : </label><br>               
-        <label ><i class="fas fa-unlock"></i> password : </label><br>
-        <label>  port :</label><br>
-       
-        <label > location : </label><br>
-       
-          <div class="inputright">
-          <select name="server" id="server">
-            <option value="ygg-dds">ygg-dds</option>
-            <option value="ygg-dev">ygg-dev</option>
-            <option value="ygg-rds">ygg-rds</option>
-          </select>
-          <br>
-          <input type="text" name="password" value="Yggadmin61"><br>
-          <input type="text" name="port" value="3309"><br>            
-          <input type="text" name="location" value="/backup/mongodb/ygg-dds"><br>
-
-        <div class="sumbit">
-          <button class="savebutton" >Save</button>
-          <button class="resetbutton" >Reset</button>
-        </div>
-         
-        </div>
-  
-    </div>
-   
-    </form>
-</div>
-
-<div id="Create" class="tabcontent">
-  <p>Create new database configuration</p>
-
-</div>
-
-<div id="Delete" class="tabcontent">
-  <p>Delete database configuration</p>
-
-</div>
-       
     </div>
                 
     </div>
           
-         </div>
+    </div>
     </div>
         
   </body>

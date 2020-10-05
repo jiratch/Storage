@@ -13,13 +13,19 @@
     }
     
 .content_wrapper{
-  position: absolute;
-  top:30px;
+  position: relative;
+  top:100px;
   left:50px;
  
 
 }
 
+.content{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  
+}
 .left{
   line-height: 60px;
   display: block;
@@ -58,7 +64,7 @@
 }
 
 .card{
-  padding:6px;
+ 
   position: fixed;
   left: 270px;
   top:90px; 
@@ -78,7 +84,7 @@
   cursor: pointer;
   padding: 14px 16px;
   font-size: 17px;
-  width: 33%;
+  width: 250px;
   border: none;
   transition: 0.272s;
   transition-property: background-color;
@@ -91,16 +97,19 @@
   background-color: #0849AF;
 
 
+
 }
 
 #Deletetab:hover {
   background-color: #0849AF;
+  
 
 
 }
 
 #Edittab:hover {
   background-color: #0849AF;
+ 
 
  
 }
@@ -118,15 +127,25 @@
   border-radius: 7px;
 }
 
-.tab{
-  position: relative;
-  margin-left: -30px;
-  background-color: #525676;
-  width:762px;
-  height: 50px;
-  z-index: 1;
-
+.savebutton:hover{
+  background-color: #0e8f12;
+  
 }
+
+.resetbutton:hover{
+  background-color: rgb(207, 7, 7);
+  
+}
+
+input[type=text] {
+    border: 1px solid #ccc;  
+    border-radius: 2.5px;
+  }
+
+select {
+    border: 1px solid #ccc; 
+    border-radius: 2.5px; 
+  }
 
 .resetbutton{
   background-color: rgb(230, 8, 8);
@@ -150,6 +169,7 @@
   background-color: #fff;
   color: black;
   height:250px;
+  position: relative ;
 
 }
 #Create {
