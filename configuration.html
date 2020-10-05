@@ -79,10 +79,24 @@
   padding: 14px 16px;
   font-size: 17px;
   width: 33%;
-  border: 1;
+  border: none;
 
 }
 
+#Createtab:hover {
+  background-color: green;
+
+}
+
+#Deletetab:hover {
+  background-color: red;
+
+}
+
+#Edittab:hover {
+  background-color: #0744A1;
+ 
+}
 
 .savebutton{
   background-color: #20c026;
@@ -144,7 +158,8 @@
   color: white;
   display: none;
   padding: 5px;
-  top:50px
+  top:50px;
+
    
 }
 
@@ -169,7 +184,7 @@
       
  
       document.addEventListener('DOMContentLoaded', function () {
-      document.getElementById("defaultOpen").click();})
+      document.getElementById("Edittab").click();})
       </script>
 
    
@@ -200,22 +215,22 @@
     <div class="content_wrapper">
           
     <div class="card">
-      <button class="tablink" id="defaultOpen" onclick="openPage('Edit', this, '#0744A1')" > Edit <i class="far fa-edit"></i></button>
-      <button class="tablink" onclick="openPage('Create', this, 'green')" > Create <i class="fas fa-plus-circle"></i></button>
-      <button class="tablink" onclick="openPage('Delete', this, 'red')"> Delete <i class="fas fa-trash-alt"></i></button>
+      <button class="tablink" id="Edittab" onclick="openPage('Edit', this, '#0744A1')" > Edit <i class="far fa-edit"></i></button>
+      <button class="tablink" id="Createtab" onclick="openPage('Create', this, 'green')" > Create <i class="fas fa-plus-circle"></i></button>
+      <button class="tablink" id="Deletetab" onclick="openPage('Delete', this, 'red')"> Delete <i class="fas fa-trash-alt"></i></button>
     
 <div id="Edit" class="tabcontent">
   
   <form name="update" action="http://localhost:5000/update/configuration" method="post"> 
     <div class="left">
-        <label ><i class="fas fa-database"></i>  database type </label><br>
+        <label ><i class="fas fa-database"></i>  database type : </label><br>
 
-        <label ><i class="fas fa-user"></i> username </label><br>        
-        <label > host </label><br>        
+        <label ><i class="fas fa-user"></i> username : </label><br>        
+        <label > host : </label><br>        
 
-        <label > database </label><br>                
+        <label > database : </label><br>                
      
-        <label > maximum files </label><br>                
+        <label > maximum files : </label><br>                
       
         <div class="inputleft"> 
 
@@ -235,11 +250,11 @@
     </div>
 
     <div class="right">
-        <label ><i class="fas fa-server"></i>  database server </label><br>               
-        <label ><i class="fas fa-unlock"></i> password </label><br>
-        <label>  port</label><br>
+        <label ><i class="fas fa-server"></i>  database server : </label><br>               
+        <label ><i class="fas fa-unlock"></i> password : </label><br>
+        <label>  port :</label><br>
        
-        <label > location </label><br>
+        <label > location : </label><br>
        
           <div class="inputright">
           <select name="server" id="server">
