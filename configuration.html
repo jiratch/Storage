@@ -57,10 +57,14 @@
 .inputright{
 
   position: relative;
-  top:-240px;
+  top:-300px;
   left:155px;
   
 
+}
+input.schedule{
+  width:15px;
+ 
 }
 
 .card{
@@ -68,8 +72,8 @@
   position: fixed;
   left: 270px;
   top:90px; 
-  width: 750px;
-  height: 420px;
+  width: 810px;
+  height: 450px;
   background-position: center;
   background-color: #fff;
   border-radius: 7px;
@@ -84,7 +88,7 @@
   cursor: pointer;
   padding: 14px 16px;
   font-size: 17px;
-  width: 250px;
+  width: 270px;
   border: none;
   transition: 0.272s;
   transition-property: background-color;
@@ -160,9 +164,10 @@ select {
   cursor: pointer;
   border-radius: 7px;
 }
-.sumbit{
+.submit{
   position: relative;
-  top:40px
+  top:70px;
+  left: 40px;
 }
 #Edit {
   
@@ -280,6 +285,7 @@ select {
         <label>  port :</label><br>
        
         <label > location : </label><br>
+        <label > schedule : </label> days:<input class="schedule" type="text" name="days" value="0"> hours :<input class="schedule" type="text" name="hours" value="0"> minutes:<input class="schedule" type="text" name="days" value="0"> seconds:<input class="schedule" type="text" name="seconds" value="30"><br>
        
           <div class="inputright">
           <select name="server" id="server">
@@ -291,8 +297,10 @@ select {
           <input type="text" name="password" value="Yggadmin61"><br>
           <input type="text" name="port" value="3309"><br>            
           <input type="text" name="location" value="/backup/mongodb/ygg-dds"><br>
+        
+        
 
-        <div class="sumbit">
+        <div class="submit">
           <button class="savebutton" >Save</button>
           <button class="resetbutton" >Reset</button>
         </div>
